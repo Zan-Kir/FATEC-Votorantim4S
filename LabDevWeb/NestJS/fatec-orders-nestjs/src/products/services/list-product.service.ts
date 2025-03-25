@@ -1,15 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { ProductRepository } from '../product.repository';
+import { ProductInterface } from '../product.interface';
 
 @Injectable()
 export class ListProductService {
-    execute(): any[] {
-        return [
-            {
-                name: "Bolacha",
-                value: 2.59,
-                brand: "Trakinas",
-                weight: 100,
-            }
-        ]
-    }
+  constructor(private productRepository: ProductRepository) {}
+  execute(): ProductInterface[] {
+    return this.productRepository.list();
+  }
 }
