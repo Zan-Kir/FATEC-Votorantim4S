@@ -4,6 +4,7 @@ import { ListProductService } from './services/list-product.service';
 import { GetProductByIdService } from './services/get-product-byid.service';
 import { ProductRepository } from './product.repository';
 import { CreateProductService } from './services/create-product.service';
+import { UpdateProductService } from './services/update-product.service';
 
 @Module({
   controllers: [ProductController],
@@ -12,6 +13,7 @@ import { CreateProductService } from './services/create-product.service';
     GetProductByIdService,
     ProductRepository,
     CreateProductService,
+    UpdateProductService,
   ],
 })
 export class ProductsModule {}

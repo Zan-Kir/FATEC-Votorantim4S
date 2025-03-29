@@ -3,6 +3,7 @@ import { ListProductService } from './services/list-product.service';
 import { GetProductByIdService } from './services/get-product-byid.service';
 import { ProductInterface } from './product.interface';
 import { CreateProductService } from './services/create-product.service';
+import { UpdateProductService } from './services/update-product.service';
 
 @Controller('product')
 export class ProductController {
@@ -10,6 +11,7 @@ export class ProductController {
     private readonly listProductService: ListProductService,
     private readonly getProductByIdService: GetProductByIdService,
     private readonly createProductService: CreateProductService,
+    private readonly updateProductService: UpdateProductService,
   ) {}
 
   @Get()
@@ -27,5 +29,10 @@ export class ProductController {
   @Post()
   create(@Body() product: ProductInterface): void {
     this.createProductService.execute(product);
+  }
+
+  @Post(':id')
+  update(@Param('id') id: string, @Body() product: ProductInterface): void {
+    this.updateProductService.execute(Number(id), product);
   }
 }
