@@ -20,7 +20,7 @@ export default function Cesta({ topo, detalhes, itens }) {
               <Topo {...topo} />
               <View style={estilos.cesta}>
                 <Detalhes {...detalhes} />
-                <Texto style={estilo.titulo}>{itens.titulo}</Texto>
+                <Texto style={estilos.titulo}>{itens.titulo}</Texto>
               </View>
             </>
           );
